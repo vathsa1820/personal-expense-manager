@@ -28,6 +28,7 @@ header h1 {
 
 header p {
   color: #9aa4b2;
+  margin-bottom: 10px;
 }
 
 .card {
@@ -61,10 +62,11 @@ button {
   background: #7cff6b;
   color: #000;
   border: none;
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 8px;
 }
 
 button:hover {
@@ -98,4 +100,22 @@ li button {
 
 .total h3 {
   font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* LIGHT THEME */
+.light {
+  background: #f4f6fa;
+  color: #000;
+}
+
+.light .card {
+  background: #ffffff;
+  color: #000;
+}
+
+.light input, 
+.light select {
+  background: #f0f0f0;
+  color: #000;
 }
