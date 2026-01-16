@@ -1,39 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Expense Manager</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Personal Expense Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <h1>Expense Manager</h1>
-      <p>Take control of your daily finances</p>
-    </header>
+<div class="container">
 
-    <section class="card">
-      <h2>Add Expense</h2>
-      <form id="expense-form">
-        <input type="number" id="amount" placeholder="Amount ₹" required />
-        <input type="text" id="category" placeholder="Category (Food, Travel…)" required />
-        <input type="date" id="date" required />
-        <button type="submit">Add Expense</button>
-      </form>
-    </section>
+  <header>
+    <h1>Expense Manager</h1>
+    <p>Track expenses • Manage debts • Stay in control</p>
+  </header>
 
-    <section class="card">
-      <h2>Expense List</h2>
-      <ul id="expense-list"></ul>
-    </section>
+  <!-- Add Expense -->
+  <section class="card">
+    <h2>Add Expense</h2>
+    <form id="expense-form">
+      <input type="number" id="amount" placeholder="Amount ₹" required>
+      <input type="text" id="category" placeholder="Category (Food, Travel)" required>
+      <input type="date" id="date" required>
+      <button type="submit">Add Expense</button>
+    </form>
+  </section>
 
-    <section class="card total">
-      <h2>Total Spent</h2>
-      <h3 id="total">₹0</h3>
-    </section>
-  </div>
+  <!-- Debt Manager -->
+  <section class="card">
+    <h2>Debt Manager</h2>
+    <form id="debt-form">
+      <input type="text" id="person" placeholder="Person Name" required>
+      <input type="number" id="debtAmount" placeholder="Amount ₹" required>
+      <select id="type">
+        <option value="Borrowed">Borrowed</option>
+        <option value="Lent">Lent</option>
+      </select>
+      <button>Add Debt</button>
+    </form>
+    <ul id="debt-list"></ul>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- Expense List -->
+  <section class="card">
+    <h2>Expenses</h2>
+    <ul id="expense-list"></ul>
+  </section>
+
+  <!-- Total -->
+  <section class="card total">
+    <h2>Total Spent</h2>
+    <h3 id="total">₹0</h3>
+  </section>
+
+  <!-- Chart -->
+  <section class="card">
+    <h2>Spending by Category</h2>
+    <canvas id="expenseChart"></canvas>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
+
