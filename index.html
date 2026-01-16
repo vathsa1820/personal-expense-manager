@@ -13,6 +13,7 @@
   <header>
     <h1>Expense Manager</h1>
     <p>Track expenses • Manage debts • Stay in control</p>
+    <button onclick="toggleTheme()">Toggle Theme</button>
   </header>
 
   <!-- Add Expense -->
@@ -24,6 +25,13 @@
       <input type="date" id="date" required>
       <button type="submit">Add Expense</button>
     </form>
+  </section>
+
+  <!-- Filters -->
+  <section class="card">
+    <h2>Filters</h2>
+    <input type="month" id="monthFilter">
+    <input type="text" id="searchFilter" placeholder="Search category">
   </section>
 
   <!-- Debt Manager -->
@@ -51,6 +59,8 @@
   <section class="card total">
     <h2>Total Spent</h2>
     <h3 id="total">₹0</h3>
+    <button onclick="exportCSV()">Export to CSV</button>
+    <button onclick="clearAll()" style="background:#ff6b6b">Clear All Data</button>
   </section>
 
   <!-- Chart -->
@@ -64,4 +74,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
