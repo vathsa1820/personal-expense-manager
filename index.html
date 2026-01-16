@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Expense Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Expense Manager</h1>
+      <p>Take control of your daily finances</p>
+    </header>
+
+    <section class="card">
+      <h2>Add Expense</h2>
+      <form id="expense-form">
+        <input type="number" id="amount" placeholder="Amount ₹" required />
+        <input type="text" id="category" placeholder="Category (Food, Travel…)" required />
+        <input type="date" id="date" required />
+        <button type="submit">Add Expense</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Expense List</h2>
+      <ul id="expense-list"></ul>
+    </section>
+
+    <section class="card total">
+      <h2>Total Spent</h2>
+      <h3 id="total">₹0</h3>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
