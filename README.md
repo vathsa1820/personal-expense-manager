@@ -1,11 +1,12 @@
 # Personal Expense Manager
 
-A modern personal finance app built using HTML, CSS, and JavaScript.
+A modern personal finance web app built using HTML, CSS, and JavaScript.
 
 ## Features
-- Track daily expenses
-- Category-wise spending chart
+- Expense tracking
+- Category-wise charts
 - Debt (borrow/lend) manager
-- Persistent storage using localStorage
-- Free hosting with GitHub Pages
-
+- Monthly & category filters
+- Export to CSV
+- Dark / Light mode
+- Free hosting via GitHub Pages
