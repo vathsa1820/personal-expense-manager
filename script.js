@@ -15,9 +15,15 @@ function renderExpenses() {
   let total = 0;
   let categoryTotals = {};
 
-  expenses.forEach((exp, index) => {
-    total += exp.amount;
+  const selectedMonth = document.getElementById("monthFilter").value;
+  const searchText = document.getElementById("searchFilter").value.toLowerCase();
 
+  expenses.forEach((exp, index) => {
+
+    if (selectedMonth && !exp.date.startsWith(selectedMonth)) return;
+    if (searchText && !exp.category.toLowerCase().includes(searchText)) return;
+
+    total += exp.amount;
     categoryTotals[exp.category] =
       (categoryTotals[exp.category] || 0) + exp.amount;
 
@@ -105,6 +111,39 @@ document.getElementById("debt-form").addEventListener("submit", e => {
   e.target.reset();
 });
 
+// ---------------- UTILITIES ----------------
+
+function exportCSV() {
+  let csv = "Amount,Category,Date\n";
+  expenses.forEach(e => {
+    csv += `${e.amount},${e.category},${e.date}\n`;
+  });
+
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "expenses.csv";
+  a.click();
+}
+
+function clearAll() {
+  if (confirm("This will delete all data. Continue?")) {
+    localStorage.clear();
+    expenses = [];
+    debts = [];
+    renderExpenses();
+    renderDebts();
+  }
+}
+
+function toggleTheme() {
+  document.body.classList.toggle("light");
+}
+
 // INIT
 renderExpenses();
 renderDebts();
+
+document.getElementById("monthFilter").addEventListener("change", renderExpenses);
+document.getElementById("searchFilter").addEventListener("input", renderExpenses);
